@@ -1,7 +1,5 @@
 # Pac_man_RL_Project
 
-# Pacman Reinforcement Learning Exercise
-
 ![Pacman Image](assets/pacman.png)
 
 ## Overview
