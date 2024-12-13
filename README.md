@@ -1,7 +1,6 @@
 # Pac_man_RL_Project
-
-![Pacman Image](assets/pacman.png)
-
+# PacmanDQN
+Deep Reinforcement Learning in Pac-man
 ## Overview
 
 This project is part of the **Reinforcement Learning (RL)** course in the **M.Sc. Artificial Intelligence and Machine Learning** program at **Christ (Deemed to be University), Bangalore**. The exercise is based on the **UC Berkeley RL Exercise**, which includes a Pacman game framework designed to train RL agents to play the game (or a simplified version of it).
@@ -9,55 +8,65 @@ This project is part of the **Reinforcement Learning (RL)** course in the **M.Sc
 ## Team Members
 
 - **Samson Sabu**  
-- **Guhan K.S.**
+- **Guhan S.**
 
-## Objective
+## Example usage
 
-The goal of this project is to apply reinforcement learning algorithms to train agents capable of navigating and playing Pacman. We have also modified the original framework to make our implementation unique and tailored to our course objectives.
+Run a model on `smallGrid` layout for 6000 episodes, of which 5000 episodes
+are used for training.
 
-## Modifications
+```
+$ python3 pacman.py -p PacmanDQN -n 6000 -x 5000 -l smallGrid
+```
 
-We have introduced some changes to the UC Berkeley Pacman game framework, including:
+### Layouts
+Different layouts can be found and created in the `layouts` directory
 
-- **Custom Environment Tweaks**: Modified game dynamics and environment settings to introduce new challenges.  
+### Parameters
 
-## Key Components
+Parameters can be found in the `params` dictionary in `pacmanDQN_Agents.py`. <br />
+ <br />
+Models are saved as "checkpoint" files in the `/saves` directory. <br />
+Load and save filenames can be set using the `load_file` and `save_file` parameters. <br />
+ <br />
+Episodes before training starts: `train_start` <br />
+Size of replay memory batch size: `batch_size` <br />
+Amount of experience tuples in replay memory: `mem_size` <br />
+Discount rate (gamma value): `discount` <br />
+Learning rate: `lr` <br />
+ <br />
+Exploration/Exploitation (ε-greedy): <br />
+Epsilon start value: `eps` <br />
+Epsilon final value: `eps_final` <br />
+Number of steps between start and final epsilon value (linear): `eps_step` <br />
 
-1. **Agent Training**  
-   - Implemented RL algorithms such as Q-Learning.  
-   - Tuned hyperparameters for optimal performance in the modified environment.
+## Citation
 
-2. **Environment Setup**  
-   - Customized the Pacman grid and gameplay logic to ensure diversity in training scenarios.
+Please cite this repository if it was useful for your research:
 
-3. **Performance Evaluation**  
-   - Analyzed the agents' performance using metrics like cumulative rewards and survival time.
+```
+@article{van2016deep,
+  title={Deep Reinforcement Learning in Pac-man},
+  subtitle={Bachelor Thesis},
+  author={van der Ouderaa, Tycho},
+  year={2016},
+  school={University of Amsterdam},
+  type={Bachelor Thesis},
+}
 
-## Getting Started
+```
 
-1. Clone this repository:  
-   ```bash
-   git clone https://github.com/samsomsabu/PAC-MAN-Reinforcement-Learning-Project/blob/main/Readme.md
-   cd pacman-rl
-   ```
+* [van der Ouderaa, Tycho (2016). Deep Reinforcement Learning in Pac-man.](https://moodle.umons.ac.be/pluginfile.php/404484/mod_folder/content/0/Pacman_DQN.pdf)
 
-2. Install dependencies:  
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Requirements
 
-3. Run the Pacman game:  
-   ```bash
-   python pacman.py
-   ```
+- `python==3.5.1`
+- `tensorflow==0.8rc`
 
-4. Train RL agents:  
-   ```bash
-   python train_agent.py
-   ```
+## Acknowledgements
 
-## Future Work
+DQN Framework by  (made for ATARI / Arcade Learning Environment)
+* [deepQN_tensorflow](https://github.com/mrkulk/deepQN_tensorflow) ([https://github.com/mrkulk/deepQN_tensorflow](https://github.com/mrkulk/deepQN_tensorflow))
 
-- Implement multi-agent scenarios to explore collaborative and competitive behaviors.  
-- Experiment with transfer learning to adapt trained agents to new environments.  
-- Explore additional algorithms like Actor-Critic and PPO.
+Pac-man implementation by UC Berkeley:
+* [The Pac-man Projects - UC Berkeley](http://ai.berkeley.edu/project_overview.html) ([http://ai.berkeley.edu/project_overview.html](http://ai.berkeley.edu/project_overview.html))
